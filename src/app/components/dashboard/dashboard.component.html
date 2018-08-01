@@ -1,0 +1,23 @@
+<nav>
+  <a [routerLink]="['/signin']" (click)="logout()">Logout</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div>
+      <div class="col-md-8 offset-md-4">
+        <mat-card class="example-card">
+        <mat-card-content>
+        <div [chart]="chart"></div>
+          <p>
+            This is a simple highchart!
+          </p>
+        </mat-card-content>
+          <mat-card-actions>
+            <!--<button mat-button routerLink="highchart">See Full...</button>-->
+            <button mat-button (click)="showFullHighchart()" >See Full...</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
