@@ -26,6 +26,7 @@ import {
 } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { JwtHelper } from 'angular2-jwt';
+import { HeaderComponent } from './components/header/header.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', canActivate: [AuthGuard]  },
   { path: 'dashboard', component: DashboardComponent,  canActivate: [AuthGuard] },
@@ -42,7 +43,8 @@ const routes: Routes = [
     HighchartComponent,
     SigninComponent,
     SignupComponent,
-    AlertComponent
+    AlertComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

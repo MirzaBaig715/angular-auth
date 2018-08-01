@@ -36,7 +36,4 @@ export class DashboardComponent implements OnInit {
   showFullHighchart() {
     this.router.navigate(['highchart']);
   }
-  logout() {
-    this.authService.logout();
-  }
 }

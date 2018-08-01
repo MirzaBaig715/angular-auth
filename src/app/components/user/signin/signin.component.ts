@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-// import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({templateUrl: 'signin.component.html'})
 export class SigninComponent implements OnInit {
@@ -15,7 +15,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router,
+    authService: AuthService) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -23,16 +24,15 @@ export class SigninComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    //   // reset login status
-    //   this.authenticationService.logout();
-    //
-    //   // get return url from route parameters or default to '/'
-    //   this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    // }
-    //
-    // // convenience getter for easy access to form fields
-    // get f() { return this.loginForm.controls; }
-  }
+      // reset login status
+      // this.authService.logout();
+
+      // get return url from route parameters or default to '/'
+      // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    }
+
+    // convenience getter for easy access to form fields
+    get f() { return this.loginForm.controls; }
   //
   onSubmit() {
     // this.submitted = true;
