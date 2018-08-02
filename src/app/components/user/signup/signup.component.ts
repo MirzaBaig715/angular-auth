@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-// import { UserService } from '../../../services/user.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({templateUrl: 'signup.component.html'})
 export class SignupComponent implements OnInit {
@@ -13,7 +13,9 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -25,19 +27,21 @@ export class SignupComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  // get f() { return this.registerForm.controls; }
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
-    // this.submitted = true;
-    //
-    // // stop here if form is invalid
-    // if (this.registerForm.invalid) {
-    //   return;
-    // }
-    //
-    // this.loading = true;
-    // this.userService.register(this.registerForm.value)
-    //   .pipe(first())
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    // this.authService.register(this.registerForm.value)
+    localStorage.setItem('currentUser', JSON.stringify(this.registerForm.value));    //   .pipe(first())
+    // this.authService.sigin(this.f.username.value, this.f.password.value);
+    this.router.navigate(['/dashboard']);
     //   .subscribe(
     //     data => {
     //       // this.alertService.success('Registration successful', true);

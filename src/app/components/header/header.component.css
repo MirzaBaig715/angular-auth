@@ -1,0 +1,14 @@
+/* Style the buttons */
+.btn-header {
+  border: 1px;
+  outline: blue;
+  padding: 10px 16px;
+  background-color: #3342f1;
+  cursor: pointer;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.active, .btn-header:hover {
+  background-color: #3e00dc;
+  color: white;
+}

@@ -5,19 +5,23 @@ import { JwtHelper} from 'angular2-jwt';
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(public jwtHelper: JwtHelper) { }
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-    if (token) {
-      return !this.jwtHelper.isTokenExpired(token);
-    }
-    console.log('token', token);
-    return true;
+  public isAuth: boolean;
+  constructor(public jwtHelper: JwtHelper) {
+    this.isAuth = false;
+    console.log('Auths', this.isAuth);
   }
-  public logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('token');
-    console.log('token removed!');
+  public isAuthenticated(): boolean {
+    return this.isAuth;
+  }
+  public logout(): void {
+    this.isAuth = false;
+  }
+  public sigin(username: string, password: string): boolean {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+      this.isAuth = (currentUser['username'] === 'mirza' && currentUser['password'] === 'password123');
+      return this.isAuth;
+    }
+    return false;
   }
 }

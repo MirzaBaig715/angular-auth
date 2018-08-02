@@ -7,13 +7,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private _authService: AuthService) { }
+  public isLoggedIn = false;
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
   }
   logout() {
-    this._authService.logout();
+    this.authService.logout();
   }
 
 }

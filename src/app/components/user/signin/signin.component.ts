@@ -16,7 +16,7 @@ export class SigninComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    authService: AuthService) {}
+    private authService: AuthService) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -35,16 +35,24 @@ export class SigninComponent implements OnInit {
     get f() { return this.loginForm.controls; }
   //
   onSubmit() {
-    // this.submitted = true;
-    //
-    // // stop here if form is invalid
-    // if (this.loginForm.invalid) {
-    //   return;
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    // if (this.authService.isAuthenticated()) {
+    //   this.router.navigate(['/dashboard']);
+    // } else {
+    //     this.router.navigate(['/signup']);
     // }
-    //
-    // this.loading = true;
-    // this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //   .pipe(first())
+    if (this.authService.sigin(this.f.username.value, this.f.password.value)) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/signup']);
+    }
+      // .pipe(first())
     //   .subscribe(
     //     data => {
     //       this.router.navigate([this.returnUrl]);

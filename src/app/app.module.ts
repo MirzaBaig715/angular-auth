@@ -31,7 +31,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', canActivate: [AuthGuard]  },
   { path: 'dashboard', component: DashboardComponent,  canActivate: [AuthGuard] },
   { path: 'highchart', component: HighchartComponent,  canActivate: [AuthGuard]  },
-  { path: 'signin', component: SigninComponent},
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
   // { path: 'register', component: SignupComponent},
   // { path: '**', redirectTo: 'register'},
 ];
