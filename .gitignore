@@ -40,3 +40,8 @@ Thumbs.db
 /.idea/
 /dist/
 /node_modules/
+
+
+.venv/*
+.idea/*
+db.sqlite3

@@ -1,34 +1,35 @@
 import { Injectable } from '@angular/core';
 import {Chart} from 'angular-highcharts';
+import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
+  private nameSource = new BehaviorSubject('default message');
+  currentUsername = this.nameSource .asObservable();
+  private subject = new Subject<any>();
+  constructor() { }
+
+  changeUserName(name: string) {
+    this.nameSource .next(name);
+  }
+  setUsername(name: string) {
+    // this.subject.next( name);
+    console.log('setUsername', this.subject.next(name));
+  }
+  getUsername(): Observable<any> {
+    console.log('getUsername', this.subject.asObservable());
+    return this.subject.asObservable();
+  }
+  clearUserName() {
+    this.subject.next();
+  }
 
   getData() {
     return [{
-      name: 'Line 1',
-      data: [1, 0, 4]
-    }, {
-      name: 'Line 2',
-      data: [5, 7, 3]
-    }, {
-      name: 'Line 3',
-      data: [6, 3, 2]
-    }, {
-      name: 'Line 4',
-      data: [1, 10, 6]
-    }, {
-      name: 'Line 5',
-      data: [1, 2, 4]
-    }, {
-      name: 'Line 6',
-      data: [9, 1, 4]
-    }, {
-      name: 'Line 7',
-      data: [11, 7, 2]
-    }, {
       name: 'Line 8',
       data: [21, 22, 11]
     }, {
@@ -42,19 +43,8 @@ export class DataServiceService {
       data: [8, 12, 22]
     }, {
       name: 'Line 12',
-      data: [24, 22, 12]
-    }, {
-      name: 'Line 13',
-      data: [12, 4, 21]
-    }, {
-      name: 'Line 14',
-      data: [1, 5, 9]
-    }, {
-      name: 'Line 15',
-      data: [1, 22, 12]
-    }, {
-      name: 'Line 16',
-      data: [5, 7, 13]
+      data: [24, 22, 12],
+      lineWidth: 5
     }];
   }
 }

@@ -1,0 +1,41 @@
+
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2" style="padding-left: 0px">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-10">
+      <div style="padding-top: 30px; padding-bottom: 30px" class="container">
+        <ul class="navbar no-bullets">
+          <li class="search-bar">
+            <form [formGroup]="" (ngSubmit)="onSubmit()">
+              <div class="form-group btn-group text-right">
+                <input placeholder="search" id="search" type="text" formControlName="searchform" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.search.errors}" />
+                <div *ngIf="submitted && f.search.errors" class="invalid-feedback">
+                  <div>Error</div>
+                </div>
+                <button type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </form>
+          </li>
+          <li>
+            <button><i class="fas fa-ellipsis-h"></i></button>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="col-2 backgroud-page"></div>
+          <div class="gap"></div>
+          <div class="col-2 backgroud-page"></div>
+          <div class="gap"></div>
+          <div class="col-2 backgroud-page"></div>
+          <div class="gap"></div>
+          <div class="col-2 backgroud-page"></div>
+          <div class="gap"></div>
+          <div class="col-2 backgroud-page"></div>
+          <div class="gap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

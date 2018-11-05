@@ -12,3 +12,39 @@
   background-color: #3e00dc;
   color: white;
 }
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.nav-bar {
+  /*border-bottom: 1px black inset;*/
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  background: #af0020;
+}
+.nav {
+  display: inline-flex;
+  /*padding-left: 0;*/
+  margin-bottom: 0;
+  /*margin-right: 0px;*/
+  list-style: none;
+  /*float: left;*/
+}
+.nav-link {
+  display: block;
+  padding: 0.5em 1em;
+}
+li>a {
+  color: #f5faf6;
+}
+

@@ -1,16 +1,38 @@
 <app-header></app-header>
-<div style="padding-top: 70px; padding-bottom: 70px" class="container">
-<div class="col-md-8 ">
-  <mat-card class="example-card">
-    <mat-card-content>
-      <div [chart]="chart"></div>
-        <p>
-          This is a simple highchart!
-        </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="showFullHighchart()" >See Full...</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2" style="padding-left: 0px">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-10">
+      <div style="padding-top: 70px; padding-bottom: 70px" class="container">
+        <div class="col-md-8 ">
+          <mat-card class="example-card">
+            <mat-card-content>
+              <div [chart]="chart"></div>
+              <p>
+                This is a simple highchart!
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="showFullHighchart()" >See Full...</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <div class="col-md-8 ">
+          <mat-card class="example-card">
+            <mat-card-content>
+              <div [chart]="chart"></div>
+              <p>
+                This is a simple highchart!
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="showFullHighchart()" >See Full...</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
